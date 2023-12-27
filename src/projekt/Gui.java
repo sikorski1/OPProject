@@ -37,12 +37,7 @@ public class Gui {
 		frame.setIconImage(image.getImage());
 		
 		
-		String tableData[][] = {
-				{"EUR", "4.35", "4.33"},
-				{"USD", "4.12", "4.10"},
-				{"GBP", "4.93", "4.95"}
-				
-		};
+		String tableData[][] = Exchange.getData();
 		
 		String columnNames[] = {"Currency", "Purchase", "Sale"};
 		

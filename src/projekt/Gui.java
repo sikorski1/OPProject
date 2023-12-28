@@ -12,7 +12,6 @@ public class Gui {
 			{"EUR", "4.35", "4.33"},
 			{"USD", "4.12", "4.10"},
 			{"GBP", "4.93", "4.95"}
-
 	};
 	static int width = 1500;
 	static int height = 800;

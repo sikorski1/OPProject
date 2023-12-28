@@ -38,6 +38,8 @@ public class Gui {
 		
 		
 		String tableData[][] = Exchange.getData();
+		String tableData2[][] = Baksy.getData();
+		String tableData3[][] = Grosz.getData();
 		
 		String columnNames[] = {"Currency", "Purchase", "Sale"};
 		
@@ -46,12 +48,12 @@ public class Gui {
 		JScrollPane exchangeTableSP = new JScrollPane(exchangeTable);
         exchangePanel.add(exchangeTableSP, BorderLayout.NORTH);
         
-		JTable baksyTable = new JTable(tableData, columnNames);
+		JTable baksyTable = new JTable(tableData2, columnNames);
 		baksyTable.setEnabled(false);
 		JScrollPane baksyTableSP = new JScrollPane(baksyTable);
         baksyPanel.add(baksyTableSP, BorderLayout.NORTH);
         
-		JTable groszTable = new JTable(tableData, columnNames);
+		JTable groszTable = new JTable(tableData3, columnNames);
 		groszTable.setEnabled(false);
 		JScrollPane groszTableSP = new JScrollPane(groszTable);
         groszPanel.add(groszTableSP, BorderLayout.NORTH);
@@ -60,7 +62,7 @@ public class Gui {
         frame.add(baksyPanel);
         frame.add(groszPanel);
         
-        
+      
 	}
 	
     public static void main(String[] args) {

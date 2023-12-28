@@ -12,18 +12,18 @@ public class Exchange {
 		int j = 0;
 		try {
 			Document document = Jsoup.connect(url).get();
-			Elements selectedDivs = document.select(".waluty-grid > .col > .card");
-			String dataTable[][] = new String[selectedDivs.size()][3];
-			for (Element div :selectedDivs) {
+			Elements selectedTags = document.select(".waluty-grid > .col > .card");
+			String dataTable[][] = new String[selectedTags.size()][3];
+			for (Element tag :selectedTags) {
 				for (int i = 0; i<3; i++) {
 					if (i == 0) {
-						dataTable[j][i] = div.select(".card-header > h2").text().replace("100", "");
+						dataTable[j][i] = tag.select(".card-header > h2").text().replace("100", "");
 					}
 					
 					else if (i == 1) {
-						if (div.select(".card-body > .card-body-desc > .card-body-price > h5").text().replace("PLN", "") != "") {
-						double convertedData = Double.parseDouble(div.select(".card-body > .card-body-desc > .card-body-price > h5").text().replace("PLN", ""));
-						dataTable[j][i] = Double.toString(convertedData/100);
+						if (!tag.select(".card-body > .card-body-desc > .card-body-price > h5").text().replace("PLN", "").equals("")) {
+						double convertedData = Double.parseDouble(tag.select(".card-body > .card-body-desc > .card-body-price > h5").text().replace("PLN", ""));
+						dataTable[j][i] = String.format("%.4f", convertedData/100);
 						}
 						else {
 							dataTable[j][i] = null;
@@ -31,9 +31,11 @@ public class Exchange {
 					}
 					
 					else {
-						if (div.select(".card-body > .card-body-desc > .card-body-price > h5").text().replace("PLN", "") != "") {
-							double convertedData = Double.parseDouble(div.select(".card-body > .card-body-desc > .card-body-price > h5").text().replace("PLN", ""))/100;
-							dataTable[j][i] = Double.toString(convertedData);
+						if (!tag.select(".card-body > .card-body-items > .card-body-change > h5").text().replace("PLN", "").equals("")) {
+							double convertedData = Double.parseDouble(tag.select(".card-body > .card-body-items > .card-body-change > h5").text().replace("PLN", ""));
+							dataTable[j][i] = String.format("%.4f", convertedData/100);
+							
+							
 						}
 						else {
 							dataTable[j][i] = null;

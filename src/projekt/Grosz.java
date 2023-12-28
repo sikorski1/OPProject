@@ -1,5 +1,8 @@
 package projekt;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -44,6 +47,7 @@ public class Grosz {
 				j++;
 			}
 			data = dataTable;
+			Arrays.sort(data, Comparator.comparing(arr -> arr[0]));
 		} 
 		catch(Exception ex) {
 			ex.printStackTrace();

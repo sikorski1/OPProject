@@ -1,20 +1,26 @@
 package projekt;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Baksy {
+	static Logger demoLogger = LogManager.getLogger(Baksy.class.getName());
 	public static String[][] getData() {
 		String[][] data = null;
 		String url = "https://www.baksy.pl/kurs-walut";
 		int j = 0;
 		try {
 			Document document = Jsoup.connect(url).get();
+			demoLogger.info("The website has been downloaded");
 			Elements selectedTags = document.select(".rate-table > tbody > tr");
 			String dataTable[][] = new String[selectedTags.size()][3];
 			for (Element tag :selectedTags) {
@@ -29,7 +35,8 @@ public class Baksy {
 							dataTable[j][i] = String.format("%.4f", convertedData);
 						}
 						else {
-							dataTable[j][i] = null;
+							dataTable[j][i] = "";
+							demoLogger.warn("No data in " + dataTable[j][0]);
 						}
 					}
 					
@@ -39,7 +46,8 @@ public class Baksy {
 							dataTable[j][i] = String.format("%.4f", convertedData);	
 						}
 						else {
-							dataTable[j][i] = null;
+							dataTable[j][i] = "";
+							demoLogger.warn("No data in " + dataTable[j][0]);
 						}
 					}
 				}
@@ -47,9 +55,14 @@ public class Baksy {
 			}
 			data = dataTable;
 			Arrays.sort(data, Comparator.comparing(arr -> arr[0]));
+			demoLogger.info("The data has been downloaded and sorted");
 		} 
 		catch(Exception ex) {
-			ex.printStackTrace();
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			ex.printStackTrace(pw);
+			String stackTrace = sw.toString();
+			demoLogger.error(stackTrace);
 		}
 		return data;
 	}

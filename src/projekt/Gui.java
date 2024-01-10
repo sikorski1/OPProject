@@ -23,10 +23,6 @@ public class Gui {
 	static int height = 800;
 	static int gap = 10;
 	static ArrayList<String> bestSalesTable; // <---- nazwy kantorow według najlepszych cen (Sell)
-<<<<<<< HEAD
-=======
-
->>>>>>> branczyk
 	public static void createAndShowGUI() {
 		int numOfCrrExc = currencyExchanges.length;
 		int panelWidth = width / numOfCrrExc;

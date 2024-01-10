@@ -22,6 +22,7 @@ public class Gui {
 	static int width = 1500;
 	static int height = 800;
 	static int gap = 10;
+	static ArrayList<String> bestSalesTable;
 	public static void createAndShowGUI() {
 		int numOfCrrExc = currencyExchanges.length;
 		int panelWidth = width/numOfCrrExc;
@@ -70,6 +71,8 @@ public class Gui {
 		ArrayList<String> exchangeCurrencies = new ArrayList<String>();
 		ArrayList<String> baksyCurrencies = new ArrayList<String>();
 		ArrayList<String> groszCurrencies = new ArrayList<String>();
+		bestSalesTable = new ArrayList<String>();
+		
 		for (int i = 0; i < tableBaksy.length; i++) {
 			baksyCurrencies.add(tableBaksy[i][0]);
 			if (i < tableExchange.length) {
@@ -84,7 +87,7 @@ public class Gui {
 		System.out.println(groszCurrencies);
 		int i = 0;
 		for (String currency : baksyCurrencies) {
-			if (exchangeCurrencies.contains(currency) && groszCurrencies.contains(currency)) {
+			if (exchangeCurrencies.contains(currency) && groszCurrencies.contains(currency) && (!tableExchange[exchangeCurrencies.indexOf(currency)][2].equals("") && !tableGrosz[groszCurrencies.indexOf(currency)][2].equals(""))) {
 				resultTable[i][0] = currency;
 				resultTable[i][1] = null;
 				try {
@@ -95,15 +98,26 @@ public class Gui {
 											tableExchange[exchangeCurrencies.indexOf(currency)][2].replace(",", ".")),
 									Double.parseDouble(
 											tableGrosz[groszCurrencies.indexOf(currency)][2].replace(",", ".")))));
+					System.out.println(resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2]));
+					if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2])) {
+						bestSalesTable.add("Kantor Exchange");
+					}
+					else if (resultTable[i][2].equals(tableBaksy[baksyCurrencies.indexOf(currency)][2])) {
+						bestSalesTable.add("Kantor Baksy");
+					}
+					else {
+						bestSalesTable.add("Kantor Grosz");
+					}
 					// whatIsIt(resultTable[i][2])
 					// xddd ale moloch, ogolnie sprawdzana jest tu najmniejsza wartosc Sell, ale
 					// trzeba konwertowac dane xdddddddddd
 				} catch (Exception e) {
 					resultTable[i][2] = "";
 					demoLogger.warn("No data in " + resultTable[i][0]);
+					bestSalesTable.add("No data");
 				}
 			} else {
-				if (exchangeCurrencies.contains(currency)) {
+				if (exchangeCurrencies.contains(currency) && !tableExchange[exchangeCurrencies.indexOf(currency)][2].equals("")) {
 					resultTable[i][0] = currency;
 					resultTable[i][1] = null;
 					try {
@@ -112,11 +126,18 @@ public class Gui {
 										tableExchange[exchangeCurrencies.indexOf(currency)][2].replace(",", ".")),
 								Double.parseDouble(
 										tableBaksy[baksyCurrencies.indexOf(currency)][2].replace(",", "."))));
+						if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2])) {
+							bestSalesTable.add("Kantor Exchange");
+						}
+						else {
+							bestSalesTable.add("Kantor Baksy");
+						}
 					} catch (Exception e) {
 						resultTable[i][2] = "";
 						demoLogger.warn("No data in " + resultTable[i][0]);
+						bestSalesTable.add("No data");
 					}
-				} else if (groszCurrencies.contains(currency)) {
+				} else if (groszCurrencies.contains(currency) && !tableGrosz[groszCurrencies.indexOf(currency)][2].equals("")) {
 					resultTable[i][0] = currency;
 					resultTable[i][1] = null;
 					try {
@@ -126,18 +147,28 @@ public class Gui {
 												tableGrosz[groszCurrencies.indexOf(currency)][2].replace(",", ".")),
 										Double.parseDouble(
 												tableBaksy[baksyCurrencies.indexOf(currency)][2].replace(",", "."))));
+						if (resultTable[i][2].equals(tableGrosz[groszCurrencies.indexOf(currency)][2])) {
+							bestSalesTable.add("Kantor Grosz");
+						}
+						else {
+							bestSalesTable.add("Kantor Baksy");
+						}
 					} catch (Exception e) {
 						resultTable[i][2] = "";
 						demoLogger.warn("No data in " + resultTable[i][0]);
+						bestSalesTable.add("No data");
 					}
 				} else {
 					resultTable[i][0] = currency;
 					resultTable[i][1] = null;
 					resultTable[i][2] = tableBaksy[baksyCurrencies.indexOf(currency)][2];
+					bestSalesTable.add("Kantor Baksy");
 				}
 			}
 			i++;
 		}
+		System.out.println(bestSalesTable);
+		System.out.println(bestSalesTable.size());
 		return resultTable;
 	}
 	public static void main(String[] args) {

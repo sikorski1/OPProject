@@ -249,3 +249,23 @@
 16:15:11.619 [main] INFO  projekt.Baksy - The data has been downloaded and sorted
 16:15:11.683 [main] INFO  projekt.Grosz - The website has been downloaded
 16:15:11.688 [main] INFO  projekt.Grosz - The data has been downloaded and sorted
+16:40:16.320 [main] INFO  projekt.Exchange - The website has been downloaded
+16:40:16.358 [main] WARN  projekt.Exchange - No data in CNY
+16:40:16.359 [main] WARN  projekt.Exchange - No data in CNY
+16:40:16.359 [main] WARN  projekt.Exchange - No data in MXN
+16:40:16.359 [main] WARN  projekt.Exchange - No data in MXN
+16:40:16.361 [main] INFO  projekt.Exchange - The data has been downloaded and sorted
+16:40:16.610 [main] INFO  projekt.Baksy - The website has been downloaded
+16:40:16.620 [main] INFO  projekt.Baksy - The data has been downloaded and sorted
+16:40:16.665 [main] INFO  projekt.Grosz - The website has been downloaded
+16:40:16.669 [main] INFO  projekt.Grosz - The data has been downloaded and sorted
+16:40:56.482 [main] INFO  projekt.Exchange - The website has been downloaded
+16:40:56.519 [main] WARN  projekt.Exchange - No data in CNY
+16:40:56.520 [main] WARN  projekt.Exchange - No data in CNY
+16:40:56.520 [main] WARN  projekt.Exchange - No data in MXN
+16:40:56.520 [main] WARN  projekt.Exchange - No data in MXN
+16:40:56.522 [main] INFO  projekt.Exchange - The data has been downloaded and sorted
+16:40:56.787 [main] INFO  projekt.Baksy - The website has been downloaded
+16:40:56.797 [main] INFO  projekt.Baksy - The data has been downloaded and sorted
+16:40:56.854 [main] INFO  projekt.Grosz - The website has been downloaded
+16:40:56.859 [main] INFO  projekt.Grosz - The data has been downloaded and sorted

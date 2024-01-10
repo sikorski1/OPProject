@@ -74,8 +74,6 @@ public class Exchange {
 			for  (int j = 0; j<3; j++) {
 				System.out.print(data[i][j]);
 			}
-			System.out.println();
-			
 		}
 	}
 }

@@ -11,21 +11,22 @@ import org.apache.logging.log4j.Logger;
 public class Gui {
 	static Logger demoLogger = LogManager.getLogger(Exchange.class.getName());
 	static String image1 = "piggy_logo.png";
-	static String[] currencyExchanges = {"Kantor Exchagne", "Kantor Baksy", "Kantor Grosz", "Najlepsze Kursy"};
-	static String[] columnNames = {"Currency", "Purchase", "Sale"};
-	static Color[] colors = {Color.red, Color.green, Color.blue, Color.cyan};
+	static String[] currencyExchanges = { "Kantor Exchagne", "Kantor Baksy", "Kantor Grosz", "Najlepsze Kursy" };
+	static String[] columnNames = { "Currency", "Purchase", "Sale" };
+	static Color[] colors = { Color.red, Color.green, Color.blue, Color.cyan };
 	static String[][] tableExchange = Exchange.getData();
 	static String[][] tableBaksy = Baksy.getData();
 	static String[][] tableGrosz = Grosz.getData();
-	static String[][] bestExchangeRates = bestRates(tableExchange,tableBaksy,tableGrosz);
-	static String[][][] dataTable = {tableExchange, tableBaksy, tableGrosz, bestExchangeRates};
+	static String[][] bestExchangeRates = bestRates(tableExchange, tableBaksy, tableGrosz);
+	static String[][][] dataTable = { tableExchange, tableBaksy, tableGrosz, bestExchangeRates };
 	static int width = 1500;
 	static int height = 800;
 	static int gap = 10;
-	static ArrayList<String> bestSalesTable;
+	static ArrayList<String> bestSalesTable; // <---- nazwy kantorow według najlepszych cen (Sell)
+
 	public static void createAndShowGUI() {
 		int numOfCrrExc = currencyExchanges.length;
-		int panelWidth = width/numOfCrrExc;
+		int panelWidth = width / numOfCrrExc;
 
 		JFrame frame = new JFrame();
 		frame.setTitle("Kursy walut");
@@ -46,8 +47,7 @@ public class Gui {
 			textField.setHorizontalAlignment(JTextField.CENTER);
 			textField.setFont(new Font("Arial", Font.BOLD, 20));
 			textField.setBackground(Color.lightGray);
-			textField.setBorder(BorderFactory.createCompoundBorder(
-					BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2),
+			textField.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2),
 					BorderFactory.createLineBorder(Color.BLACK, 2)));
 			textField.setBounds(x, 1, panelWidth, 50);
 			frame.add(textField, BorderLayout.NORTH);
@@ -72,7 +72,7 @@ public class Gui {
 		ArrayList<String> baksyCurrencies = new ArrayList<String>();
 		ArrayList<String> groszCurrencies = new ArrayList<String>();
 		bestSalesTable = new ArrayList<String>();
-		
+
 		for (int i = 0; i < tableBaksy.length; i++) {
 			baksyCurrencies.add(tableBaksy[i][0]);
 			if (i < tableExchange.length) {
@@ -87,7 +87,9 @@ public class Gui {
 		System.out.println(groszCurrencies);
 		int i = 0;
 		for (String currency : baksyCurrencies) {
-			if (exchangeCurrencies.contains(currency) && groszCurrencies.contains(currency) && (!tableExchange[exchangeCurrencies.indexOf(currency)][2].equals("") && !tableGrosz[groszCurrencies.indexOf(currency)][2].equals(""))) {
+			if (exchangeCurrencies.contains(currency) && groszCurrencies.contains(currency)
+					&& (!tableExchange[exchangeCurrencies.indexOf(currency)][2].equals("")
+							&& !tableGrosz[groszCurrencies.indexOf(currency)][2].equals(""))) {
 				resultTable[i][0] = currency;
 				resultTable[i][1] = null;
 				try {
@@ -98,14 +100,13 @@ public class Gui {
 											tableExchange[exchangeCurrencies.indexOf(currency)][2].replace(",", ".")),
 									Double.parseDouble(
 											tableGrosz[groszCurrencies.indexOf(currency)][2].replace(",", ".")))));
-					System.out.println(resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2]));
+					System.out
+							.println(resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2]));
 					if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2])) {
 						bestSalesTable.add("Kantor Exchange");
-					}
-					else if (resultTable[i][2].equals(tableBaksy[baksyCurrencies.indexOf(currency)][2])) {
+					} else if (resultTable[i][2].equals(tableBaksy[baksyCurrencies.indexOf(currency)][2])) {
 						bestSalesTable.add("Kantor Baksy");
-					}
-					else {
+					} else {
 						bestSalesTable.add("Kantor Grosz");
 					}
 					// whatIsIt(resultTable[i][2])
@@ -117,7 +118,8 @@ public class Gui {
 					bestSalesTable.add("No data");
 				}
 			} else {
-				if (exchangeCurrencies.contains(currency) && !tableExchange[exchangeCurrencies.indexOf(currency)][2].equals("")) {
+				if (exchangeCurrencies.contains(currency)
+						&& !tableExchange[exchangeCurrencies.indexOf(currency)][2].equals("")) {
 					resultTable[i][0] = currency;
 					resultTable[i][1] = null;
 					try {
@@ -128,8 +130,7 @@ public class Gui {
 										tableBaksy[baksyCurrencies.indexOf(currency)][2].replace(",", "."))));
 						if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2])) {
 							bestSalesTable.add("Kantor Exchange");
-						}
-						else {
+						} else {
 							bestSalesTable.add("Kantor Baksy");
 						}
 					} catch (Exception e) {
@@ -137,7 +138,8 @@ public class Gui {
 						demoLogger.warn("No data in " + resultTable[i][0]);
 						bestSalesTable.add("No data");
 					}
-				} else if (groszCurrencies.contains(currency) && !tableGrosz[groszCurrencies.indexOf(currency)][2].equals("")) {
+				} else if (groszCurrencies.contains(currency)
+						&& !tableGrosz[groszCurrencies.indexOf(currency)][2].equals("")) {
 					resultTable[i][0] = currency;
 					resultTable[i][1] = null;
 					try {
@@ -149,8 +151,7 @@ public class Gui {
 												tableBaksy[baksyCurrencies.indexOf(currency)][2].replace(",", "."))));
 						if (resultTable[i][2].equals(tableGrosz[groszCurrencies.indexOf(currency)][2])) {
 							bestSalesTable.add("Kantor Grosz");
-						}
-						else {
+						} else {
 							bestSalesTable.add("Kantor Baksy");
 						}
 					} catch (Exception e) {
@@ -167,13 +168,13 @@ public class Gui {
 			}
 			i++;
 		}
-		System.out.println(bestSalesTable);
-		System.out.println(bestSalesTable.size());
 		return resultTable;
 	}
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() { createAndShowGUI(); }
+			public void run() {
+				createAndShowGUI();
+			}
 		});
 	}
 }

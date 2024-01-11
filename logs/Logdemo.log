@@ -1,0 +1,28 @@
+16:58:20.333 [main] INFO  projekt.Exchange - The website has been downloaded
+16:58:20.371 [main] WARN  projekt.Exchange - No data in CNY
+16:58:20.371 [main] WARN  projekt.Exchange - No data in CNY
+16:58:20.371 [main] WARN  projekt.Exchange - No data in MXN
+16:58:20.371 [main] WARN  projekt.Exchange - No data in MXN
+16:58:20.373 [main] INFO  projekt.Exchange - The data has been downloaded and sorted
+16:58:20.630 [main] INFO  projekt.Baksy - The website has been downloaded
+16:58:20.642 [main] INFO  projekt.Baksy - The data has been downloaded and sorted
+16:58:20.751 [main] INFO  projekt.Grosz - The website has been downloaded
+16:58:20.755 [main] INFO  projekt.Grosz - The data has been downloaded and sorted
+20:15:12.270 [main] INFO  projekt.Exchange - The website has been downloaded
+20:15:12.307 [main] WARN  projekt.Exchange - No data in CNY
+20:15:12.308 [main] WARN  projekt.Exchange - No data in CNY
+20:15:12.308 [main] WARN  projekt.Exchange - No data in MXN
+20:15:12.308 [main] WARN  projekt.Exchange - No data in MXN
+20:15:12.310 [main] INFO  projekt.Exchange - The data has been downloaded and sorted
+20:15:44.294 [main] INFO  projekt.Grosz - The website has been downloaded
+20:15:44.320 [main] INFO  projekt.Grosz - The data has been downloaded and sorted
+20:15:51.444 [main] INFO  projekt.Exchange - The website has been downloaded
+20:15:51.484 [main] WARN  projekt.Exchange - No data in CNY
+20:15:51.484 [main] WARN  projekt.Exchange - No data in CNY
+20:15:51.484 [main] WARN  projekt.Exchange - No data in MXN
+20:15:51.484 [main] WARN  projekt.Exchange - No data in MXN
+20:15:51.487 [main] INFO  projekt.Exchange - The data has been downloaded and sorted
+20:15:51.776 [main] INFO  projekt.Baksy - The website has been downloaded
+20:15:51.786 [main] INFO  projekt.Baksy - The data has been downloaded and sorted
+20:15:51.836 [main] INFO  projekt.Grosz - The website has been downloaded
+20:15:51.841 [main] INFO  projekt.Grosz - The data has been downloaded and sorted

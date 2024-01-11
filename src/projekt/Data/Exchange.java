@@ -1,4 +1,4 @@
-package projekt;
+package projekt.Data;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

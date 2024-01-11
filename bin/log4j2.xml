@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE nameOfYourRootElement>
-<Configuration status="WARN">
+<nameOfYourRootElement status="WARN">
 	<Properties>
 		<Property name="filename">./logs</Property>
 	</Properties>
@@ -27,4 +27,4 @@
 			<AppenderRef ref="Console" />
 		</Root>
 	</Loggers>
-</Configuration>
+</nameOfYourRootElement>

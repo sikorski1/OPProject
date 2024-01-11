@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/OPProject.iml" filepath="$PROJECT_DIR$/OPProject.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/POProject.iml" filepath="$PROJECT_DIR$/POProject.iml" />
+>>>>>>> branczyk
     </modules>
   </component>
 </project>

@@ -97,3 +97,13 @@
 20:18:55.144 [main] INFO  projekt.Data.Grosz - The website has been downloaded
 20:18:55.149 [main] INFO  projekt.Data.Grosz - The data has been downloaded and sorted
 >>>>>>> 9f53c9410f2580b3eb590c59d99e00ad31f4e6ce
+23:26:32.312 [AWT-EventQueue-0] INFO  projekt.Data.Exchange - The website has been downloaded
+23:26:32.351 [AWT-EventQueue-0] WARN  projekt.Data.Exchange - No data in CNY
+23:26:32.351 [AWT-EventQueue-0] WARN  projekt.Data.Exchange - No data in CNY
+23:26:32.352 [AWT-EventQueue-0] WARN  projekt.Data.Exchange - No data in MXN
+23:26:32.352 [AWT-EventQueue-0] WARN  projekt.Data.Exchange - No data in MXN
+23:26:32.354 [AWT-EventQueue-0] INFO  projekt.Data.Exchange - The data has been downloaded and sorted
+23:26:32.630 [AWT-EventQueue-0] INFO  projekt.Data.Baksy - The website has been downloaded
+23:26:32.640 [AWT-EventQueue-0] INFO  projekt.Data.Baksy - The data has been downloaded and sorted
+23:26:32.758 [AWT-EventQueue-0] INFO  projekt.Data.Grosz - The website has been downloaded
+23:26:32.764 [AWT-EventQueue-0] INFO  projekt.Data.Grosz - The data has been downloaded and sorted

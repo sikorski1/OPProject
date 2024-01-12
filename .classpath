@@ -7,9 +7,9 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
-	<classpathentry kind="lib" path="D:/Java_Eclipse/jsoup-1.17.2.jar"/>
-	<classpathentry kind="lib" path="D:/Java_Eclipse/jsoup-1.17.2-sources.jar"/>
-	<classpathentry kind="lib" path="D:/Java_Eclipse/log4j-api-2.22.1.jar"/>
-	<classpathentry kind="lib" path="D:/Java_Eclipse/log4j-core-2.22.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jplos/Downloads/jsoup-1.17.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jplos/Downloads/jsoup-1.17.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jplos/Downloads/apache-log4j-2.22.1-bin/log4j-api-2.22.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jplos/Downloads/apache-log4j-2.22.1-bin/log4j-core-2.22.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

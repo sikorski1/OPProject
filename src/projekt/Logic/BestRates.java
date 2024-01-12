@@ -43,7 +43,16 @@ public class BestRates {
                                             tableGrosz[groszCurrencies.indexOf(currency)][2].replace(",", ".")))));
                     System.out
                             .println(resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2]));
-                    if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2])) {
+                    if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2]) && resultTable[i][2].equals(tableBaksy[baksyCurrencies.indexOf(currency)][2])  ) {
+                    	bestSalesTable.add("Kantor Exchange i Kantor Baksy");
+                    }
+                    else if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2]) && resultTable[i][2].equals(tableGrosz[groszCurrencies.indexOf(currency)][2])) {
+                    	bestSalesTable.add("Kantor Exchange i Kantor Grosz");
+                    }
+                    else if (resultTable[i][2].equals(tableGrosz[groszCurrencies.indexOf(currency)][2]) && resultTable[i][2].equals(tableBaksy[baksyCurrencies.indexOf(currency)][2])) {
+                    	bestSalesTable.add("Kantor Baksy i Kantor Grosz");
+                    }
+                     else if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2])) {
                         bestSalesTable.add("Kantor Exchange");
                     } else if (resultTable[i][2].equals(tableBaksy[baksyCurrencies.indexOf(currency)][2])) {
                         bestSalesTable.add("Kantor Baksy");
@@ -69,7 +78,10 @@ public class BestRates {
                                         tableExchange[exchangeCurrencies.indexOf(currency)][2].replace(",", ".")),
                                 Double.parseDouble(
                                         tableBaksy[baksyCurrencies.indexOf(currency)][2].replace(",", "."))));
-                        if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2])) {
+                        if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2]) && resultTable[i][2].equals(tableBaksy[baksyCurrencies.indexOf(currency)][2])  ) {
+                        	bestSalesTable.add("Kantor Exchange i Kantor Baksy");
+                        	}
+                        else if (resultTable[i][2].equals(tableExchange[exchangeCurrencies.indexOf(currency)][2])) {
                             bestSalesTable.add("Kantor Exchange");
                         } else {
                             bestSalesTable.add("Kantor Baksy");
@@ -90,7 +102,10 @@ public class BestRates {
                                                 tableGrosz[groszCurrencies.indexOf(currency)][2].replace(",", ".")),
                                         Double.parseDouble(
                                                 tableBaksy[baksyCurrencies.indexOf(currency)][2].replace(",", "."))));
-                        if (resultTable[i][2].equals(tableGrosz[groszCurrencies.indexOf(currency)][2])) {
+                         if (resultTable[i][2].equals(tableGrosz[groszCurrencies.indexOf(currency)][2]) && resultTable[i][2].equals(tableBaksy[baksyCurrencies.indexOf(currency)][2])) {
+                        	bestSalesTable.add("Kantor Baksy i Kantor Grosz"); 
+                        	}
+                        else if (resultTable[i][2].equals(tableGrosz[groszCurrencies.indexOf(currency)][2])) {
                             bestSalesTable.add("Kantor Grosz");
                         } else {
                             bestSalesTable.add("Kantor Baksy");

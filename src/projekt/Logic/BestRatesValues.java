@@ -32,7 +32,13 @@ public class BestRatesValues {
                     && (!tableExchange[exchangeCurrencies.indexOf(currency)][2].equals("")
                     && !tableGrosz[groszCurrencies.indexOf(currency)][2].equals(""))) {
                 resultTable[i][0] = currency;
-                resultTable[i][1] = null;
+                resultTable[i][1] = String.format("%.4f", Math.max(
+                        Double.parseDouble(tableBaksy[baksyCurrencies.indexOf(currency)][1].replace(",", ".")),
+                        Math.max(
+                                Double.parseDouble(
+                                        tableExchange[exchangeCurrencies.indexOf(currency)][1].replace(",", ".")),
+                                Double.parseDouble(
+                                        tableGrosz[groszCurrencies.indexOf(currency)][1].replace(",", ".")))));
                 try {
                     resultTable[i][2] = String.format("%.4f", Math.min(
                             Double.parseDouble(tableBaksy[baksyCurrencies.indexOf(currency)][2].replace(",", ".")),
@@ -50,9 +56,7 @@ public class BestRatesValues {
                     } else {
                         bestSalesTable.add("Kantor Grosz");
                     }
-                    // whatIsIt(resultTable[i][2])
-                    // xddd ale moloch, ogolnie sprawdzana jest tu najmniejsza wartosc Sell, ale
-                    // trzeba konwertowac dane xdddddddddd
+
                 } catch (Exception e) {
                     resultTable[i][2] = "";
                     demoLogger.warn("No data in " + resultTable[i][0]);
@@ -62,7 +66,11 @@ public class BestRatesValues {
                 if (exchangeCurrencies.contains(currency)
                         && !tableExchange[exchangeCurrencies.indexOf(currency)][2].equals("")) {
                     resultTable[i][0] = currency;
-                    resultTable[i][1] = null;
+                    resultTable[i][1] = String.format("%.4f", Math.max(
+                            Double.parseDouble(
+                                    tableExchange[exchangeCurrencies.indexOf(currency)][1].replace(",", ".")),
+                            Double.parseDouble(
+                                    tableBaksy[baksyCurrencies.indexOf(currency)][1].replace(",", "."))));
                     try {
                         resultTable[i][2] = String.format("%.4f", Math.min(
                                 Double.parseDouble(
@@ -82,7 +90,12 @@ public class BestRatesValues {
                 } else if (groszCurrencies.contains(currency)
                         && !tableGrosz[groszCurrencies.indexOf(currency)][2].equals("")) {
                     resultTable[i][0] = currency;
-                    resultTable[i][1] = null;
+                    resultTable[i][1] = String.format("%.4f",
+                            Math.max(
+                                    Double.parseDouble(
+                                            tableGrosz[groszCurrencies.indexOf(currency)][1].replace(",", ".")),
+                                    Double.parseDouble(
+                                            tableBaksy[baksyCurrencies.indexOf(currency)][1].replace(",", "."))));
                     try {
                         resultTable[i][2] = String.format("%.4f",
                                 Math.min(
@@ -102,7 +115,7 @@ public class BestRatesValues {
                     }
                 } else {
                     resultTable[i][0] = currency;
-                    resultTable[i][1] = null;
+                    resultTable[i][1] = tableBaksy[baksyCurrencies.indexOf(currency)][1];
                     resultTable[i][2] = tableBaksy[baksyCurrencies.indexOf(currency)][2];
                     bestSalesTable.add("Kantor Baksy");
                 }

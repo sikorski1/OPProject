@@ -6,6 +6,7 @@ import projekt.Data.Baksy;
 import projekt.Data.Exchange;
 import projekt.Data.Grosz;
 import projekt.Logic.BestRates;
+import projekt.Logic.BestRatesPurchase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,11 +26,14 @@ public class CreateAndShowGui {
     static String[][] tableBaksy = Baksy.getData();
     static String[][] tableGrosz = Grosz.getData();
     static String[][] bestExchangeRates = bestRatesValues(tableExchange, tableBaksy, tableGrosz);
+    
     static String[][][] dataTable = { tableExchange, tableBaksy, tableGrosz, bestExchangeRates };
     static int width = 1500;
     static int height = 800;
     static int gap = 10;
-    static ArrayList<String> bestSalesTable = BestRates.bestRates(tableExchange, tableBaksy, tableGrosz); // <---- nazwy kantorow według najlepszych cen (Sell)
+    static ArrayList<String> bestSalesTable = BestRates.bestRates(tableExchange, tableBaksy, tableGrosz);
+    static ArrayList<String> bestRatesPur = BestRatesPurchase.bestRatesValues(tableExchange, tableBaksy, tableGrosz);
+   
 
     public static void createAndShowGUI() {
         int numOfCrrExc = (currencyExchanges.length + 1);
@@ -67,7 +71,7 @@ public class CreateAndShowGui {
             i += 1;
             x += panelWidth;
         }
-        JPanel panel = new CustomPanel("Najlepsze kursy", colors[3], dataTable, columnNames, bestSalesTable, x, panelWidth, height, gap, frame);
+        JPanel panel = new CustomPanel("Najlepsze kursy", colors[3], dataTable, columnNames, bestSalesTable, x, panelWidth, height, gap, frame, bestRatesPur);
 
         frame.setLocationRelativeTo(null); // Center the frame
         frame.setVisible(true);
